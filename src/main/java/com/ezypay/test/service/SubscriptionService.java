@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class SubscriptionService {
 
-    List<String> lisOfInvoiceDate = new ArrayList<>();
+
 
     public SubscriptionDto createSubscription(SubscriptionDto dto) {
         Calendar start = Calendar.getInstance();
@@ -71,6 +71,7 @@ public class SubscriptionService {
     }
 
     private List<String> listDate(SubscriptionType type, LocalDate start, LocalDate end) {
+        List<String> lisOfInvoiceDate = new ArrayList<>();
         if (SubscriptionType.DAILY.equals(type)) {
             while (!start.isAfter(end)) {
                 lisOfInvoiceDate.add(start.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
